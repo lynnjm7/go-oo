@@ -1,0 +1,128 @@
+Object Oriented Go
+Or: How I Learned to Stop Worrying and Love the Interface
+4 May 2016
+Tags: go golang oo object-oriented
+
+Josh Lynn
+Jedi Knight, CTO & Software Engineer, Apartments247.com
+lynnjm7@gmail.com
+@lynnjm7
+
+* Intro
+
+* Introduction
+First off... May the 4th be with you!!
+
+What are objects?
+
+What is Object Oriented Programming (OOP)?
+
+How do we express OOP in Go?
+
+* 3000 Foot Overview of OOP
+
+* What are Objects?
+Objects are an encapsulation of data and transformations on that data.
+
+They contain the state of data and control how transform that state.
+
+* What is OOP?
+OOP is programming with objects.
+
+Control state transitions by mutating objects via their implemented methods.
+
+* How are objects created?
+They combine different data types to form bigger, more complex structures.
+
+They provide methods that allow you to touch those internal, composed types to do stuff.
+
+Typically defined by using "classes" in languages like Java and C++.
+
+* So.... just what exactly is OOP?
+It's a grouping of things and the stuff we want to do with it.
+
+The "things" are the fields of our data.
+
+The "stuff" is the methods that we do mutate things with.
+
+Programming, in any paradigm, is about taking data (i.e. things) and transforming
+it into a different style of data (i.e. another thing).
+
+When we are defining objects we're defining our own data type.
+
+* What are data types?
+Data types are collections/sets of things and operations that act on them.
+
+This forms the basis for Abstract Data Types and Algebraic Data Types. (But that's beyond the
+scope of this talk).
+
+In Go, we can compose other types to build more complex types. We don't have inheritance.
+
+* Intro to Go's Type System
+
+* Go's Primitive Types
+uint{n}, int{n} where n is 8, 16, 32, 64
+
+float{n}, complex{n} where n is 32, 64
+
+bool, byte, rune
+
+Arrays, slices, pointers, references
+
+* User Defined Types
+
+* Structs
+Structs compose the data objects in Go
+
+Structs can be composed of other structs
+
+.code structs.go
+
+* Interfaces
+Define what methods an object has; what it can _do_.
+
+Are used to define what procedures a data type is capable performing.
+
+.code interfaces.go
+
+* Implementing Interfaces
+Just write the functions! It's that simple!
+
+We don't need no stinkin' keywords!
+
+.code implements.go
+
+* The Empty Interface
+This interface has NO methods.
+
+Therefore, every struct implements the empty interface.
+
+This should NEVER be used. It "strips" off the methods when it's consumed in a function.
+
+It circumvents the type system, requires use of RTTI (aka Reflection) to do anything. This
+makes the code slow and inefficient!
+
+* interface{} Example
+.play emptyInterface.go /BEGIN OMIT/,/END OMIT/
+
+* The Empty Struct
+Occasionally useful.
+
+Can be used as a flag to a channel in a goroutine. (But that's beyond the scope of this talk)
+
+* Polymorphism
+
+* Inheritance
+One standard way that C++, Java, Python, et al implement polymorphism is by an inheritace
+hierarchy.
+
+This can lead to tangled webs of code and, when done poorly, bad spaghetti code.
+
+* Composition
+You compose functionality, building up your type from smaller components.
+
+We can compose both interfaces and structs to build up our data types.
+
+We've already seen examples of composition for both of these cases!
+
+* Questions?
