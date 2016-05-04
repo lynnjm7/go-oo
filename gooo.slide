@@ -76,21 +76,21 @@ Structs compose the data objects in Go
 
 Structs can be composed of other structs
 
-.code structs.go
+.code code/structs.go
 
 * Interfaces
 Define what methods an object has; what it can _do_.
 
 Are used to define what procedures a data type is capable performing.
 
-.code interfaces.go
+.code code/interfaces.go
 
 * Implementing Interfaces
 Just write the functions! It's that simple!
 
 We don't need no stinkin' keywords!
 
-.code implements.go
+.code code/implements.go
 
 * The Empty Interface
 This interface has NO methods.
@@ -103,7 +103,7 @@ It circumvents the type system, requires use of RTTI (aka Reflection) to do anyt
 makes the code slow and inefficient!
 
 * interface{} Example
-.play emptyInterface.go /BEGIN OMIT/,/END OMIT/
+.play code/emptyInterface.go /BEGIN OMIT/,/END OMIT/
 
 * The Empty Struct
 Occasionally useful.
